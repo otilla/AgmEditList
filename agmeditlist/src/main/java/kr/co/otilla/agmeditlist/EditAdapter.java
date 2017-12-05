@@ -27,6 +27,7 @@ public abstract class EditAdapter<T> extends RecyclerView.Adapter {
     public EditAdapter(Context context)
     {
         this.mContext = context;
+        this.mList = new ArrayList<>();
     }
 
     public EditAdapter(Context context, List<T> List) {
