@@ -22,7 +22,7 @@ public abstract class EditAdapter<T> extends RecyclerView.Adapter {
 
     private boolean isEdit;
     private List<EditLayout> allItems = new ArrayList<>();
-    private EditLayout mRightOpenItem;  
+    private EditLayout mRightOpenItem;
 
     public EditAdapter(Context context)
     {
