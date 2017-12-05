@@ -20,9 +20,14 @@ public abstract class EditAdapter<T> extends RecyclerView.Adapter {
     protected Context mContext;
     protected List<T> mList;
 
-    private boolean isEdit;  //是否处于编辑状态
+    private boolean isEdit;
     private List<EditLayout> allItems = new ArrayList<>();
-    private EditLayout mRightOpenItem;  //向右展开的删除项，只会存在一项
+    private EditLayout mRightOpenItem;  
+
+    public EditAdapter(Context context)
+    {
+        this.mContext = context;
+    }
 
     public EditAdapter(Context context, List<T> List) {
         this.mContext = context;
