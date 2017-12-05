@@ -1,5 +1,7 @@
 package kr.co.otilla.agmtest;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,11 +13,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import kr.co.otilla.agmeditlist.ContentData;
 import kr.co.otilla.agmeditlist.EditRecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<String> mList;
+    ArrayList<ContentData> mList;
     WriteAdapter mAdapter;
 
     @Override
@@ -29,8 +32,17 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
-        String[] names = new String[]{ "홍길동", "홍길동2", "홍길동3", "홍길동5", "홍길동6", "홍길동7", "홍길동8", "홍길동9", "홍길동10" };
-        Collections.addAll(mList, names);
+
+        BitmapDrawable drawable = (BitmapDrawable) getResources().getDrawable(R.drawable.logo_image);
+        Bitmap bitmap = drawable.getBitmap();
+
+        mList.add(new ContentData(bitmap, "파일명", "", ""));
+        mList.add(new ContentData(bitmap, "파일명2", "", ""));
+        mList.add(new ContentData(bitmap, "파일명3", "", ""));
+        mList.add(new ContentData(bitmap, "파일명4", "", ""));
+        mList.add(new ContentData(bitmap, "파일명5", "", ""));
+        mList.add(new ContentData(bitmap, "파일명6", "", ""));
+
         mAdapter = new WriteAdapter(this, mList);
         mAdapter.setEdit(true);
         mRecyclerView.setAdapter(mAdapter);

@@ -15,10 +15,10 @@ import java.util.List;
  * 列表适配器
  */
 
-public abstract class EditAdapter<T> extends RecyclerView.Adapter {
+public abstract class EditAdapter extends RecyclerView.Adapter {
 
     protected Context mContext;
-    protected List<T> mList;
+    protected ArrayList<ContentData> mList;
 
     private boolean isEdit;
     private List<EditLayout> allItems = new ArrayList<>();
@@ -30,7 +30,7 @@ public abstract class EditAdapter<T> extends RecyclerView.Adapter {
         this.mList = new ArrayList<>();
     }
 
-    public EditAdapter(Context context, List<T> List) {
+    public EditAdapter(Context context, ArrayList<ContentData> List) {
         this.mContext = context;
         this.mList = List;
     }
@@ -193,7 +193,7 @@ public abstract class EditAdapter<T> extends RecyclerView.Adapter {
         return mRightOpenItem;
     }
 
-    public List<T> getList() {
+    public List<ContentData> getList() {
         return mList;
     }
 }

@@ -11,11 +11,6 @@ import android.view.MotionEvent;
 
 import java.util.Collections;
 
-/**
- * Created by SouthernBox on 2017/5/2 0002.
- * 自定义 RecyclerView，判断是否可滑动
- */
-
 public class EditRecyclerView extends RecyclerView implements EditLayout.OnItemSortListener {
 
     private boolean isEdit;             //是否为编辑状态

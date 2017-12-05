@@ -4,17 +4,20 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.otilla.agmeditlist.ContentData;
 import kr.co.otilla.agmeditlist.EditAdapter;
 import kr.co.otilla.agmeditlist.EditLayout;
 import kr.co.otilla.agmeditlist.EditViewHolder;
 
-public class WriteAdapter extends EditAdapter<String> {
+public class WriteAdapter extends EditAdapter {
 
-    public WriteAdapter(Context context, List<String> list) {
+    public WriteAdapter(Context context, ArrayList<ContentData> list) {
         super(context, list);
     }
 
@@ -27,7 +30,12 @@ public class WriteAdapter extends EditAdapter<String> {
     @Override
     public void onBindEditViewHolder(EditViewHolder holder, int position) {
         TextView tvName = (TextView) holder.vContent;
-        tvName.setText(mList.get(position));
+        ImageView ivImage = (ImageView) holder.vImage;
+
+        ContentData cdata = (ContentData)mList.get(position);
+
+        ivImage.setImageBitmap(cdata.Bmp);
+        tvName.setText(cdata.FileName);
     }
 
     private static class ViewHolder extends EditViewHolder {
@@ -44,6 +52,11 @@ public class WriteAdapter extends EditAdapter<String> {
         @Override
         public View setContent(View itemView) {
             return itemView.findViewById(R.id.tv_name);
+        }
+
+        @Override
+        public View setImage(View itemView) {
+            return itemView.findViewById(R.id.ivImage);
         }
 
         @Override

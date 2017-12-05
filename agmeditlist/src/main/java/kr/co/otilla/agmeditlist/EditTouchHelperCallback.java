@@ -3,11 +3,6 @@ package kr.co.otilla.agmeditlist;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
-/**
- * Created by nanquan.lin on 2017/5/22 0022.
- * 退拽排序回调
- */
-
 public class EditTouchHelperCallback extends ItemTouchHelper.Callback {
 
     private EditLayout.OnItemSortListener mOnItemSortListener;
